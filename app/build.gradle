@@ -89,7 +89,13 @@ dependencies {
 
 
 
-//Para subir versiones a git
+//Para subir versiones a git en la master
 //git add .
 //git commit -m "Explicacion commit"
 //git push origin master
+
+//Para crear rama nueva
+// git checkout -b NombreRamaNueva
+// git add .
+// git commit -m "Explicacion commit"
+// git push origin NombreRamaNueva
