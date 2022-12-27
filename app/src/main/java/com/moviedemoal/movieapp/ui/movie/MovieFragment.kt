@@ -62,6 +62,7 @@ class MovieFragment : Fragment(), MovieAdapter.OnMovieClickListener {
                     binding.progressBar.visibility = View.VISIBLE
                 }
                 is Resource.Success -> {
+                    Log.d("TestLog", "onViewCreated: ")
                     binding.progressBar.visibility = View.GONE
                     concatAdapter.apply {
                         addAdapter(
