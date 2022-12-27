@@ -96,6 +96,9 @@ dependencies {
 
 //Para crear rama nueva
 // git checkout -b NombreRamaNueva
+
+//Para subir versiones a git en la rama
+// Sabiendo que estamos en la rama, si no comprobar con git checkout NombreRamaNueva
 // git add .
 // git commit -m "Explicacion commit"
 // git push origin NombreRamaNueva
