@@ -86,3 +86,10 @@ dependencies {
 
 
 }
+
+
+
+//Para subir versiones a git
+//git add .
+//git commit -m "Explicacion commit"
+//git push origin master
