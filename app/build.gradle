@@ -99,3 +99,7 @@ dependencies {
 // git add .
 // git commit -m "Explicacion commit"
 // git push origin NombreRamaNueva
+
+//Para moverme entre ramas
+//git checkout master
+
