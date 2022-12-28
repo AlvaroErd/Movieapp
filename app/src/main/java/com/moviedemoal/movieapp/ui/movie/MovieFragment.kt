@@ -1,22 +1,20 @@
 package com.moviedemoal.movieapp.ui.movie
 
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
-import android.widget.Button
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import com.moviedemoal.movieapp.core.Resource
+import com.moviedemoal.movieapp.data.local.AppDataBase
+import com.moviedemoal.movieapp.data.local.LocalMovieDataSource
 import com.moviedemoal.movieapp.data.model.Movie
-import com.moviedemoal.movieapp.data.remote.MovieDataSource
+import com.moviedemoal.movieapp.data.remote.RemoteMovieDataSource
 import com.moviedemoal.movieapp.databinding.FragmentMovieBinding
 import com.moviedemoal.movieapp.presentation.MovieViewModel
 import com.moviedemoal.movieapp.presentation.MovieViewModelFactory
@@ -34,7 +32,8 @@ class MovieFragment : Fragment(), MovieAdapter.OnMovieClickListener {
     private val viewModel by viewModels<MovieViewModel> {
         MovieViewModelFactory(
             MovieRepositoryImpl(
-                MovieDataSource(RetrofitClient.webService)
+                RemoteMovieDataSource(RetrofitClient.webService),
+                LocalMovieDataSource(AppDataBase.getDatabase(requireContext()).movieDao())
             )
         )
     }

@@ -107,5 +107,7 @@ dependencies {
 //git checkout master
 //git checkout CambioColor
 
-
+//Una vez mergeada la rama, para ver los cambios en la master (primero entrar en la rama y despues traernosolo con pull)
+//git checkout master
+//git pull origin master
 
