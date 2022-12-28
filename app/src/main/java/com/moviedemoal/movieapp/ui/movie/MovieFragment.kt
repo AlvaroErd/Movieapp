@@ -11,6 +11,8 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import com.moviedemoal.movieapp.core.Resource
+import com.moviedemoal.movieapp.data.local.AppDataBase
+import com.moviedemoal.movieapp.data.local.LocalMovieDataSource
 import com.moviedemoal.movieapp.data.model.Movie
 import com.moviedemoal.movieapp.data.remote.RemoteMovieDataSource
 import com.moviedemoal.movieapp.databinding.FragmentMovieBinding
@@ -30,7 +32,8 @@ class MovieFragment : Fragment(), MovieAdapter.OnMovieClickListener {
     private val viewModel by viewModels<MovieViewModel> {
         MovieViewModelFactory(
             MovieRepositoryImpl(
-                RemoteMovieDataSource(RetrofitClient.webService)
+                RemoteMovieDataSource(RetrofitClient.webService),
+                LocalMovieDataSource(AppDataBase.getDatabase(requireContext()).movieDao())
             )
         )
     }
