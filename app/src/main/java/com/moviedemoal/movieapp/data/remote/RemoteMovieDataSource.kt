@@ -4,7 +4,7 @@ import com.moviedemoal.movieapp.application.AppConstants
 import com.moviedemoal.movieapp.data.model.MovieList
 import com.moviedemoal.movieapp.repository.WebService
 
-class MovieDataSource(private val webService: WebService) {
+class RemoteMovieDataSource(private val webService: WebService) {
 
     suspend fun getUpcomingMovies(): MovieList =
         webService.getUpcomingMovies(AppConstants.API_KEY)
